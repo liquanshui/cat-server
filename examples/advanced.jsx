@@ -1,13 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 
-class Advanced extends React.Component {
+export default class Advanced extends Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick() {
+        console.log(arguments);
+        alert('So easy!');
+    }
+
     render() {
-        return (
-            <div>This is an advanced 栗子2</div>
-        )
+        return <div onClick={this.onClick}>Click here!</div>;
     }
 }
-
-// export default Advanced;
-ReactDOM.render(<Advanced />, document.getElementById('component-example-advanced'));
