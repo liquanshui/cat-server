@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cat Component</title>
+  <link rel="stylesheet" href="assets/highlight.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <style>
+    html {font-size: 50px !important;}
+    body {padding: 10px 0;}
+  </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="http://cat.movie.sankuai.com" target="_blank">
+            <h1 style="color: #DD403B;font-size:50px;">cat-design</h1>
+        </a>
+        <h1>
+            <%- title %>
+        </h1>
+        <% if(script) { %>
+            <div style="padding: 10px;">
+                <div id="react-component-example"></div>
+            </div>
+            <script><%= script %></script>
+        <% } %>
+        <% if(code) { %>
+            <pre><code><%= code %></code></pre>
+        <% } %>
+        <% if(readme !== '') { %>
+          <div><%= readme %></div>
+        <% } %>
+    </div>
+
+</body>
+</html>

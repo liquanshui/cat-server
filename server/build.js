@@ -5,11 +5,12 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 
-var cwd = process.cwd();
+var cwd = process.cwd(),
+    package = require(path.join(cwd, 'package.json')),
+    alias = {};
+    alias[package.name] = path.join(cwd, package.src);
 var paths = {
-      src: path.resolve(__dirname, '../src/index.jsx'),
-      srcDest: path.resolve(__dirname, '../src/'),
-      script: path.join(cwd, '/examples/**/*.jsx'),
+      script: [path.join(cwd, '/examples/**/*.jsx'), path.join(cwd, '/examples/**/*.js')],
       scriptDest: path.resolve(__dirname, '../build/')
     };
 
@@ -22,17 +23,18 @@ var webpackConfig = {
             ]
         },
         output: {
-          filename: '[name].js'
+            filename: '[name].js'
         },
         resolve: {
-          extensions: ['', '.js', '.jsx'],
+            alias: alias,
+            extensions: ['', '.js', '.jsx'],
         },
         devtool: 'source-map',
         plugins:[new LiveReloadPlugin()]
     };
 
 gulp.task('webpack', function() {
-  gulp.src(paths.src)
+  gulp.src(paths.script)
     .pipe(named())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.scriptDest));

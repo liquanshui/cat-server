@@ -14,9 +14,9 @@ Remember to follow File Structure Guide of react-salt-component below
 
 ## Start Server
 
-npm install rs-server
+npm install @myfe/cat-server
 
-node node_modules/.bin/rs-server   // default port 7777
+node node_modules/.bin/cat-server   // default port 7777
 
 ## Publish
 
@@ -51,13 +51,11 @@ You can add these in your package.json:
 ```
 "scripts" : {
 	"dev": "node node_modules/.bin/cat-server",
-	"build": "node node_modules/.bin/build",
-  "pre-publish": "node node_modules/.bin/pre-publish"
+  	"prepublish": "node node_modules/.bin/pre-publish"
 }
 ```
 Then，you can run instead
 
 ```
 npm run dev
-npm run build
 ```
