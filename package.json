@@ -1,6 +1,6 @@
 {
   "name": "@mtfe/cat-server",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Develop server for React component",
   "main": "index.js",
   "scripts": {

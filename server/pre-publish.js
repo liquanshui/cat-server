@@ -86,6 +86,7 @@ gulp.task('prepare-examples', function() {
                 code: highlight(fs.readFileSync(filePath, 'utf8')),
                 readme: marked(readme),
                 script: file.contents.toString(),
+                name: path.basename(file.path, '.html'),
                 title: package.name + ' @' + package.version + ' ' + path.basename(file.path, '.html')
             }));
             this.push(file);
